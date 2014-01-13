@@ -16,37 +16,40 @@ public class FizzBuzz
 
     public static String say(int number)
     {
-        //TODO: el result como StringBuffer
         //TODO: No usar primitivas en clase publica, usar un objeto FizzBuzzNumber
 
-        String result = sayFizzOrDie(number);
-        result += sayBuzzOrDie(number);
-        result += sayNumber(number);
-        return result;
+        StringBuilder result = new StringBuilder(sayFizzOrDie(number));
+        result.append(sayBuzzOrDie(number));
+        result.append(sayNumber(number));
+        return result.toString();
     }
 
     private static String sayNumber(int number)
     {
-        String result ="";
+        StringBuilder result = new StringBuilder("");
 
        if  (!isFizz(number) && !isBuzz(number))
-           result = String.valueOf(number);
+           result.append(String.valueOf(number));
 
-       return result;
+       return result.toString();
     }
 
     private static String sayFizzOrDie(int number)
     {
-        String result = "";
-        if (isFizz(number)) result = FIZZ;
-        return result;
+        StringBuilder result = new StringBuilder("");
+
+        if (isFizz(number)) result.append(FIZZ);
+
+        return result.toString();
     }
 
     private static String sayBuzzOrDie(int number)
     {
-        String result = "";
-        if (isBuzz(number)) result = BUZZ;
-        return result;
+        StringBuilder result = new StringBuilder("");
+
+        if (isBuzz(number)) result.append(BUZZ);
+
+        return result.toString();
     }
 
     private static boolean isFizz(int number)
