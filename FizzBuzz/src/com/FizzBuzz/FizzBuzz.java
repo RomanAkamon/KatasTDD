@@ -1,5 +1,7 @@
 package com.FizzBuzz;
 
+import com.FizzBuzz.components.FizzBuzzNumber;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Roman
@@ -9,56 +11,45 @@ package com.FizzBuzz;
  */
 public class FizzBuzz
 {
-    public static final String FIZZ = "Fizz";
-    public static final String BUZZ = "Buzz";
-    public static final int THREE_MULTIPLIER = 3;
-    public static final int FIVE_MULTIPLIER = 5;
+    private static FizzBuzzNumber fizzBuzzNumber = new FizzBuzzNumber();
 
-    public static String say(int number)
+    public static String say(FizzBuzzNumber fizzBuzzNum)
     {
-        //TODO: No usar primitivas en clase publica, usar un objeto FizzBuzzNumber
+        fizzBuzzNumber = fizzBuzzNum;
+        StringBuilder result = new StringBuilder();
 
-        StringBuilder result = new StringBuilder(sayFizzOrDie(number));
-        result.append(sayBuzzOrDie(number));
-        result.append(sayNumber(number));
+        result.append(sayFizzOrDie());
+        result.append(sayBuzzOrDie());
+        result.append(sayNumber());
+
         return result.toString();
     }
 
-    private static String sayNumber(int number)
+    private static String sayNumber()
     {
         StringBuilder result = new StringBuilder("");
 
-       if  (!isFizz(number) && !isBuzz(number))
-           result.append(String.valueOf(number));
+       if  (!fizzBuzzNumber.isFizz() && !fizzBuzzNumber.isBuzz())
+           result.append(String.valueOf(fizzBuzzNumber.getNumber()));
 
        return result.toString();
     }
 
-    private static String sayFizzOrDie(int number)
+    private static String sayFizzOrDie()
     {
         StringBuilder result = new StringBuilder("");
 
-        if (isFizz(number)) result.append(FIZZ);
+        if (fizzBuzzNumber.isFizz()) result.append(FizzBuzzNumber.FIZZ);
 
         return result.toString();
     }
 
-    private static String sayBuzzOrDie(int number)
+    private static String sayBuzzOrDie()
     {
         StringBuilder result = new StringBuilder("");
 
-        if (isBuzz(number)) result.append(BUZZ);
+        if (fizzBuzzNumber.isBuzz()) result.append(FizzBuzzNumber.BUZZ);
 
         return result.toString();
-    }
-
-    private static boolean isFizz(int number)
-    {
-        return number % THREE_MULTIPLIER == 0;
-    }
-
-    private static boolean isBuzz(int number)
-    {
-        return number % FIVE_MULTIPLIER == 0;
     }
 }

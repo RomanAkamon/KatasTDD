@@ -8,6 +8,7 @@ package com.FizzBuzz;
  * To change this template use File | Settings | File Templates.
  */
 
+import com.FizzBuzz.components.FizzBuzzNumber;
 import org.junit.Before;
 import org.junit.Test;
 import java.util.ArrayList;
@@ -16,11 +17,15 @@ import java.util.List;
 import static org.junit.Assert.*;
 public class FizzBuzzTest
 {
+
+    private FizzBuzzNumber fizzBuzzNumber = new FizzBuzzNumber();
     @Test
     public void oneTriggersOne()
     {
         final String expected = "1";
-        String result = FizzBuzz.say(1);
+        fizzBuzzNumber.setNumber(1);
+
+        String result = FizzBuzz.say(fizzBuzzNumber);
         assertEquals("not One", expected, result);
     }
 
@@ -28,7 +33,9 @@ public class FizzBuzzTest
     public void twoTriggersTwo()
     {
         final String expected = "2";
-        String result = FizzBuzz.say(2);
+        fizzBuzzNumber.setNumber(2);
+
+        String result = FizzBuzz.say(fizzBuzzNumber);
         assertEquals("not Two", expected, result);
     }
 
@@ -36,7 +43,9 @@ public class FizzBuzzTest
     public void answersNumberAsString()
     {
         final String anyNumber = "11";
-        String result = FizzBuzz.say(11);
+        fizzBuzzNumber.setNumber(11);
+
+        String result = FizzBuzz.say(fizzBuzzNumber);
         assertEquals("not the number as String", anyNumber, result);
     }
 
@@ -44,7 +53,9 @@ public class FizzBuzzTest
     public void threeTriggersFizz()
     {
         final String expected = "Fizz";
-        String result = FizzBuzz.say(3);
+        fizzBuzzNumber.setNumber(3);
+
+        String result = FizzBuzz.say(fizzBuzzNumber);
         assertEquals("not Fizz", expected, result);
     }
 
@@ -52,7 +63,9 @@ public class FizzBuzzTest
     public void fiveTriggersBuzz()
     {
         final String expected = "Buzz";
-        String result = FizzBuzz.say(5);
+        fizzBuzzNumber.setNumber(5);
+
+        String result = FizzBuzz.say(fizzBuzzNumber);
         assertEquals("not Buzz", expected, result);
     }
 
@@ -60,7 +73,9 @@ public class FizzBuzzTest
     public void sixTriggersFizz()
     {
         final String expected = "Fizz";
-        String result = FizzBuzz.say(6);
+        fizzBuzzNumber.setNumber(6);
+
+        String result = FizzBuzz.say(fizzBuzzNumber);
         assertEquals("not Fizz", expected, result);
     }
 
@@ -68,7 +83,9 @@ public class FizzBuzzTest
     public void nineTriggersFizz()
     {
         final String expected = "Fizz";
-        String result = FizzBuzz.say(9);
+        fizzBuzzNumber.setNumber(9);
+
+        String result = FizzBuzz.say(fizzBuzzNumber);
         assertEquals("not Fizz", expected, result);
     }
 
@@ -76,7 +93,9 @@ public class FizzBuzzTest
     public void tenTriggersBuzz()
     {
         final String expected = "Buzz";
-        String result = FizzBuzz.say(10);
+        fizzBuzzNumber.setNumber(10);
+
+        String result = FizzBuzz.say(fizzBuzzNumber);
         assertEquals("not Buzz", expected, result);
     }
 
@@ -84,7 +103,9 @@ public class FizzBuzzTest
     public void twelveTriggersFizz()
     {
         final String expected = "Fizz";
-        String result = FizzBuzz.say(12);
+        fizzBuzzNumber.setNumber(12);
+
+        String result = FizzBuzz.say(fizzBuzzNumber);
         assertEquals("not Fizz", expected, result);
     }
 
@@ -92,7 +113,9 @@ public class FizzBuzzTest
     public void fifteenTriggersFizzBuzz()
     {
         final String expected = "FizzBuzz";
-        String result = FizzBuzz.say(15);
+        fizzBuzzNumber.setNumber(15);
+
+        String result = FizzBuzz.say(fizzBuzzNumber);
         assertEquals("not FizzBuzz", expected, result);
     }
 }
